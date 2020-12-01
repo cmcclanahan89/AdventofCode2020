@@ -1,0 +1,13 @@
+with open(r"C:\Scripts\Python\AdventOfCode\Day 1\Day1input.txt") as f:
+    input = list(f)
+
+for i in range(0, len(input)):
+    input[i] = int(input[i])
+
+for i in input:
+    x = int(2020 - i)
+    if (x in input):
+        print(f"{x} + {i} = {x + i}")
+        print(f"{x} * {i} = {x * i}")
+    else:
+        pass
