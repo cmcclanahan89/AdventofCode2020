@@ -1,0 +1,37 @@
+with open(r"C:\Users\cory.mcclanahan\Documents\GitHub\AdventofCode2020\Day 1\Day1Input.txt") as f:
+    input = list(f)
+
+for i in range(0, len(input)):
+    input[i] = int(input[i])
+
+for i in input:
+    x = int(2020 - i)
+    if (x in input):
+        print(f"{x} + {i} = {x + i}")
+        print(f"{x} * {i} = {x * i}")
+    else:
+        pass
+
+#Day1 Part 1 above
+#Day 1 Part 2 Below
+def threeNum(input, arraySize, sum)
+
+    input.sort()
+
+    for i in range(0, arraySize:
+     l = i + 1
+     r = (arraySize - 1)
+        while (l < r):
+            if(input[i] + input[l] + input[r] == sum):
+                print(f"{input[i]}, {input[l]}, {input[r]}")
+                return True
+
+            elif (input[i] + input[l] + input[r] > sum):
+                l += 1
+            else:
+                r -= 1
+
+    return False
+arraySize = len(input)
+
+threeNum(input,arraySize, 2020)
