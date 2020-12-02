@@ -1,4 +1,4 @@
-with open(r"C:\Users\cory.mcclanahan\Documents\GitHub\AdventofCode2020\Day 1\Day1Input.txt") as f:
+with open(r"C:\Users\cmccl\Documents\GitHub\AdventofCode2020\Day 1\Day1Input.txt") as f:
     input = list(f)
 
 for i in range(0, len(input)):
@@ -14,24 +14,13 @@ for i in input:
 
 #Day1 Part 1 above
 #Day 1 Part 2 Below
-def threeNum(input, arraySize, sum)
 
-    input.sort()
+input.sort()
+input = [i for i in input if 2020 - i >= input[0] + input[1]]
+while input:
+    i = input.pop()
+    for j in [j for j in input if j < 2020 -i]:
+        k = 2020-i-j
+        if k in [k for k in input if k < j]:
+            print("{}".format(i*j*k))
 
-    for i in range(0, arraySize:
-     l = i + 1
-     r = (arraySize - 1)
-        while (l < r):
-            if(input[i] + input[l] + input[r] == sum):
-                print(f"{input[i]}, {input[l]}, {input[r]}")
-                return True
-
-            elif (input[i] + input[l] + input[r] > sum):
-                l += 1
-            else:
-                r -= 1
-
-    return False
-arraySize = len(input)
-
-threeNum(input,arraySize, 2020)
