@@ -10,16 +10,11 @@
 
 # How many passwords are valid according to their policies?
 
-
-# with open(r"") as f:
-#     password = f.readlines()
-
-# valid = 0
-
 #open the file
 #iterate through each line, seperating the numbers at the beginning from the letters at the end, check for count of letter before the : in the string after the :
 #count the letter before the :
 # if letter.count = range of letters at the beginning of line then valid + 1 else pass
+
 with open(r'C:\Users\cmccl\Documents\GitHub\AdventofCode2020\Day 2\Day2Input.txt') as f:
     data = [line.strip().split(' ') for line in f]
 
