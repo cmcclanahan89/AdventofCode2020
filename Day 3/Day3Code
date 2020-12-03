@@ -1,1 +1,21 @@
 #place for day 3 code
+
+with open(r"C:\Users\cmccl\Documents\GitHub\AdventofCode2020\Day 3\Day3Input.txt") as f:
+    map = f.readlines()
+
+def collision(right, down):
+    hit = 0
+    for i in range(0, len(map), down):
+        across = ((i/down)*right)%(int(len(map[i])-1))
+        if(map[i][int(across)] == "#"):
+            hit += 1
+
+    return hit
+    
+#Part 1
+print(collision(3,1))
+#Part 2
+print(collision(1,1)*collision(3,1)*collision(5,1)*collision(7,1)*collision(1,2))
+
+
+
