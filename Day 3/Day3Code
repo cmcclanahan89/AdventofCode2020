@@ -16,6 +16,3 @@ def collision(right, down):
 print(collision(3,1))
 #Part 2
 print(collision(1,1)*collision(3,1)*collision(5,1)*collision(7,1)*collision(1,2))
-
-
-

@@ -1,0 +1,43 @@
+import re 
+with open(r"C:\Users\cmccl\Documents\GitHub\AdventofCode2020\Day 4\Day4Input") as f:
+    data = f.read().split('\n\n')
+  
+def checkKeys(dictonary):
+    valid = 0
+    blah = re.compile(r'[a-bd-z]{3}')
+    for k in dictonary.keys():
+        if re.finditer(blah, k) == 7:
+            valid += 1
+            return valid
+            print(valid)
+
+
+def validPassport(data):
+    passprt = {}
+    
+    for i in range(0, int(len(data))):
+         for line in data:
+             for val in line:
+                 values = line.split()
+                 passprt = {}
+                 for pair in values:
+                    key = pair.split(":")
+                    passprt[key[0]] = key[1]
+
+                    
+                    # if len(passprt) == 7:
+                    #     checkKeys(passprt)
+
+                    # if all(k in passprt for k in ('byr','iyr','eyr','hgt','hcl','ecl','pid')):
+                    #     valid += 1
+    print(passprt)
+    return passprt
+
+
+    checkKeys(passprt)
+    print(checkKeys(passprt))
+
+validPassport(data)
+
+# print(validPassport(data))
+
