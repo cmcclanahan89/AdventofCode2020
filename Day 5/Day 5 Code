@@ -36,12 +36,12 @@
 with open(r"C:\Users\cmccl\Documents\GitHub\AdventofCode2020\Day 5\Day5Input") as f:
     raw_plane = f.readlines()
 
-planeRows = 128
-
+#planeRows = 128
+seat = []
 def seats(tickets):
     for line in raw_plane:
         columns = list(line.strip())
-
+        
         first = columns[0]
         second = columns[1]
         third = columns[2] 
@@ -53,56 +53,32 @@ def seats(tickets):
         ninth = columns[8]
         last = columns[9]
 
-        row =[]
-        seat = []
-        seats_found = []
+        row =[]        
         for i in range(len(columns)):
             if columns[i] == "F":
-                bF = "0"
+                bF = '0'
                 row.append(bF)
             if columns[i] == "B":
-                bB = "1"
+                bB = '1'
                 row.append(bB)
             if columns[i] == "L":
-                sL = "0"
-                seat.append(sL)
+                sL = '0'
+                row.append(sL)
             if columns[i] == "R":
-                sR = "1"
-                seat.append(sR)
+                sR = '1'
+                row.append(sR)
                 
         
         
-        merge = [(0,1,2,3,4,5,6)]
+        mergerR = [(0,1,2,3,4,5,6,7,8,9,10,11)]
+        for t in mergerR[::-1]:
+            mergedR = ''.join(row[t[0]:t[11]])  # merging values
+            row[t[0]:t[10]] = [mergedR]
 
-    for t in merge[::-1]:
-        merged = ''.join(row[t[0]:t[6]])  # merging values within a range
-        row[t[0]:t[7]] = [merged]
+        seats_found = int(row[0], 2) #calculate the decimal value of the merged row as binary. need to add to another list or something to be able to sort highest value. 
+    return seats_found.append(seat)
 
-    return row, seat
+print(seat)
+seats(raw_plane)
 
-# def seatID(row,seat):
-#     row_Column = ((int(row, 2)* 8 + 5) for row in row)
-#     print(seatID)
-
-#rows = [seats(raw_plane) for tickets in raw_plane]
-#seat_ids = int([row * 8 + seat for row, seat in row])
-
-seats(raw_plane)  
-print(seats(raw_plane))  
-
-
-    # for i in range(int(len(raw_plane))):
-    #     range(planeRows//2)
-    #     if first == "F":
-    #         newRange = ()
-    #         fRow = []
-    #         fRow.append(i)
-    #     else:
-    #         newRange = range(64,127)
-    #     if second == "B":
-    #         #newRange = (newRange%2)
-            
-
-
-#print(newRange)
 
