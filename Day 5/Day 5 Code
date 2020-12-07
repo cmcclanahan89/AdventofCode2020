@@ -36,7 +36,6 @@
 with open(r"Day5Input") as f:
     raw_plane = f.read().splitlines()
 
-#planeRows = 128
 
 def seats(tickets):
     seat = []
