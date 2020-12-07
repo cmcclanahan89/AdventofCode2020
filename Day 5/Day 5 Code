@@ -47,42 +47,6 @@ def seats(tickets):
 
         res = [x for x in range(seat[0], seat[-1]+1) if x not in seat]
         
-        # columns = list(line)
-        
-        # first = columns[0]
-        # second = columns[1]
-        # third = columns[2] 
-        # fourth = columns[3]
-        # fifth = columns[4]  
-        # sixth = columns[5]
-        # seventh = columns[6]
-        # eighth = columns[7]
-        # ninth = columns[8]
-        # last = columns[9]
-
-        # row =[]        
-        # for i in range(len(line)):
-        #     if line[i] == "F":
-        #         bF = '0'
-        #         row.append(bF)
-        #     if line[i] == "B":
-        #         bB = '1'
-        #         row.append(bB)
-        #     if line[i] == "L":
-        #         sL = '0'
-        #         row.append(sL)
-        #     if line[i] == "R":
-        #         sR = '1'
-        #         row.append(sR)
-                
-        
-        
-        # mergerR = [(0,1,2,3,4,5,6,7,8,9,10,11)]
-        # for t in mergerR[::-1]:
-        #     mergedR = ''.join(row[t[0]:t[11]])  # merging values
-        #     row[t[0]:t[10]] = [mergedR]
-
-        # seats_found = int(row[0], 2) #calculate the decimal value of the merged row as binary. need to add to another list or something to be able to sort highest value. 
     return seat, res
 
 
