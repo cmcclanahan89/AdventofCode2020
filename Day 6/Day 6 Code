@@ -1,0 +1,21 @@
+import re
+
+with open(r"Day 6\Day6Input") as f:
+    raw = f.read().split("\n\n")
+
+raw[-1] = raw[-1][:-1]
+
+total = 0
+
+for g in raw:
+    people = g.split("\n")
+    people = [set(i) for i in people]
+    
+    inter = set.intersection(*people)
+
+    total += len(inter)
+
+
+print(people)
+# print(answers)
+print(total)
