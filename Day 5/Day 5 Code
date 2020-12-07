@@ -1,0 +1,108 @@
+#code for day 5 of advent of code 2020
+# Instead of zones or groups, this airline uses binary space partitioning to seat people. A seat might be specified like FBFBBFFRLR, where F means "front", B means "back", L means "left", and R means "right".
+
+# The first 7 characters will either be F or B; these specify exactly one of the 128 rows on the plane (numbered 0 through 127). Each letter tells you which half of a region the given seat is in. Start with the whole list of rows; the first letter indicates whether the seat is in the front (0 through 63) or the back (64 through 127). The next letter indicates which half of that region the seat is in, and so on until you're left with exactly one row.
+
+# For example, consider just the first seven characters of FBFBBFFRLR:
+
+#     Start by considering the whole range, rows 0 through 127.
+#     F means to take the lower half, keeping rows 0 through 63.
+#     B means to take the upper half, keeping rows 32 through 63.
+#     F means to take the lower half, keeping rows 32 through 47.
+#     B means to take the upper half, keeping rows 40 through 47.
+#     B keeps rows 44 through 47.
+#     F keeps rows 44 through 45.
+#     The final F keeps the lower of the two, row 44.
+
+# The last three characters will be either L or R; these specify exactly one of the 8 columns of seats on the plane (numbered 0 through 7). The same process as above proceeds again, this time with only three steps. L means to keep the lower half, while R means to keep the upper half.
+
+# For example, consider just the last 3 characters of FBFBBFFRLR:
+
+#     Start by considering the whole range, columns 0 through 7.
+#     R means to take the upper half, keeping columns 4 through 7.
+#     L means to take the lower half, keeping columns 4 through 5.
+#     The final R keeps the upper of the two, column 5.
+
+# So, decoding FBFBBFFRLR reveals that it is the seat at row 44, column 5.
+
+# Every seat also has a unique seat ID: multiply the row by 8, then add the column. In this example, the seat has ID 44 * 8 + 5 = 357.
+
+# Here are some other boarding passes:
+
+#     BFFFBBFRRR: row 70, column 7, seat ID 567.
+#     FFFBBBFRRR: row 14, column 7, seat ID 119.
+#     BBFFBBFRLL: row 102, column 4, seat ID 820.
+
+with open(r"C:\Users\cmccl\Documents\GitHub\AdventofCode2020\Day 5\Day5Input") as f:
+    raw_plane = f.readlines()
+
+planeRows = 128
+
+def seats(tickets):
+    for line in raw_plane:
+        columns = list(line.strip())
+
+        first = columns[0]
+        second = columns[1]
+        third = columns[2] 
+        fourth = columns[3]
+        fifth = columns[4]  
+        sixth = columns[5]
+        seventh = columns[6]
+        eighth = columns[7]
+        ninth = columns[8]
+        last = columns[9]
+
+        row =[]
+        seat = []
+        seats_found = []
+        for i in range(len(columns)):
+            if columns[i] == "F":
+                bF = "0"
+                row.append(bF)
+            if columns[i] == "B":
+                bB = "1"
+                row.append(bB)
+            if columns[i] == "L":
+                sL = "0"
+                seat.append(sL)
+            if columns[i] == "R":
+                sR = "1"
+                seat.append(sR)
+                
+        
+        
+        merge = [(0,1,2,3,4,5,6)]
+
+    for t in merge[::-1]:
+        merged = ''.join(row[t[0]:t[6]])  # merging values within a range
+        row[t[0]:t[7]] = [merged]
+
+    return row, seat
+
+# def seatID(row,seat):
+#     row_Column = ((int(row, 2)* 8 + 5) for row in row)
+#     print(seatID)
+
+#rows = [seats(raw_plane) for tickets in raw_plane]
+#seat_ids = int([row * 8 + seat for row, seat in row])
+
+seats(raw_plane)  
+print(seats(raw_plane))  
+
+
+    # for i in range(int(len(raw_plane))):
+    #     range(planeRows//2)
+    #     if first == "F":
+    #         newRange = ()
+    #         fRow = []
+    #         fRow.append(i)
+    #     else:
+    #         newRange = range(64,127)
+    #     if second == "B":
+    #         #newRange = (newRange%2)
+            
+
+
+#print(newRange)
+
