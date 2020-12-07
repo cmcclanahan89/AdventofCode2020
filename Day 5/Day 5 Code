@@ -33,52 +33,63 @@
 #     FFFBBBFRRR: row 14, column 7, seat ID 119.
 #     BBFFBBFRLL: row 102, column 4, seat ID 820.
 
-with open(r"C:\Users\cmccl\Documents\GitHub\AdventofCode2020\Day 5\Day5Input") as f:
-    raw_plane = f.readlines()
+with open(r"Day5Input") as f:
+    raw_plane = f.read().splitlines()
 
 #planeRows = 128
-seat = []
-def seats(tickets):
-    for line in raw_plane:
-        columns = list(line.strip())
-        
-        first = columns[0]
-        second = columns[1]
-        third = columns[2] 
-        fourth = columns[3]
-        fifth = columns[4]  
-        sixth = columns[5]
-        seventh = columns[6]
-        eighth = columns[7]
-        ninth = columns[8]
-        last = columns[9]
 
-        row =[]        
-        for i in range(len(columns)):
-            if columns[i] == "F":
-                bF = '0'
-                row.append(bF)
-            if columns[i] == "B":
-                bB = '1'
-                row.append(bB)
-            if columns[i] == "L":
-                sL = '0'
-                row.append(sL)
-            if columns[i] == "R":
-                sR = '1'
-                row.append(sR)
+def seats(tickets):
+    seat = []
+    for line in raw_plane:
+        seatID = line.replace("F", "0").replace("B", "1").replace("R", "1").replace("L", "0")
+        seat += [int(seatID, 2)]
+        seat.sort()
+
+        res = [x for x in range(seat[0], seat[-1]+1) if x not in seat]
+        
+        # columns = list(line)
+        
+        # first = columns[0]
+        # second = columns[1]
+        # third = columns[2] 
+        # fourth = columns[3]
+        # fifth = columns[4]  
+        # sixth = columns[5]
+        # seventh = columns[6]
+        # eighth = columns[7]
+        # ninth = columns[8]
+        # last = columns[9]
+
+        # row =[]        
+        # for i in range(len(line)):
+        #     if line[i] == "F":
+        #         bF = '0'
+        #         row.append(bF)
+        #     if line[i] == "B":
+        #         bB = '1'
+        #         row.append(bB)
+        #     if line[i] == "L":
+        #         sL = '0'
+        #         row.append(sL)
+        #     if line[i] == "R":
+        #         sR = '1'
+        #         row.append(sR)
                 
         
         
-        mergerR = [(0,1,2,3,4,5,6,7,8,9,10,11)]
-        for t in mergerR[::-1]:
-            mergedR = ''.join(row[t[0]:t[11]])  # merging values
-            row[t[0]:t[10]] = [mergedR]
+        # mergerR = [(0,1,2,3,4,5,6,7,8,9,10,11)]
+        # for t in mergerR[::-1]:
+        #     mergedR = ''.join(row[t[0]:t[11]])  # merging values
+        #     row[t[0]:t[10]] = [mergedR]
 
-        seats_found = int(row[0], 2) #calculate the decimal value of the merged row as binary. need to add to another list or something to be able to sort highest value. 
-    return seats_found.append(seat)
+        # seats_found = int(row[0], 2) #calculate the decimal value of the merged row as binary. need to add to another list or something to be able to sort highest value. 
+    return seat, res
 
-print(seat)
-seats(raw_plane)
+
+
+
+# print(find_missing(raw_plane))
+print(seats(raw_plane))
+
 
 
